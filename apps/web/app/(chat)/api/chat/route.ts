@@ -265,7 +265,7 @@ export async function GET(request: Request) {
     return new ChatSDKError('unauthorized:chat').toResponse();
   }
 
-  let chat: Chat;
+  let chat: Chat | undefined;
 
   try {
     chat = await getChatById({ id: chatId });
