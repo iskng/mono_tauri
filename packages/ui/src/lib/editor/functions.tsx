@@ -39,33 +39,37 @@ export const createDecorations = (
   const decorations: Array<Decoration> = [];
 
   for (const suggestion of suggestions) {
-    decorations.push(
-      Decoration.inline(
-        suggestion.selectionStart,
-        suggestion.selectionEnd,
-        {
-          class: 'suggestion-highlight',
-        },
-        {
-          suggestionId: suggestion.id,
-          type: 'highlight',
-        },
-      ),
-    );
+    if (suggestion.selectionStart !== undefined && suggestion.selectionEnd !== undefined) {
+      decorations.push(
+        Decoration.inline(
+          suggestion.selectionStart,
+          suggestion.selectionEnd,
+          {
+            class: 'suggestion-highlight',
+          },
+          {
+            suggestionId: suggestion.id,
+            type: 'highlight',
+          },
+        ),
+      );
+    }
 
-    decorations.push(
-      Decoration.widget(
-        suggestion.selectionStart,
-        (view) => {
-          const { dom } = createSuggestionWidget(suggestion, view);
-          return dom;
-        },
-        {
-          suggestionId: suggestion.id,
-          type: 'widget',
-        },
-      ),
-    );
+    if (suggestion.selectionStart !== undefined) {
+      decorations.push(
+        Decoration.widget(
+          suggestion.selectionStart,
+          (view) => {
+            const { dom } = createSuggestionWidget(suggestion, view);
+            return dom;
+          },
+          {
+            suggestionId: suggestion.id,
+            type: 'widget',
+          },
+        ),
+      );
+    }
   }
 
   return DecorationSet.create(view.state.doc, decorations);
