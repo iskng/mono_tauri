@@ -9,6 +9,7 @@
     "./artifacts/*": "./src/artifacts/*.tsx",
     "./hooks/*": "./src/hooks/*.ts",
     "./lib/*": "./src/lib/*.ts",
+    "./lib/ai/*": "./src/lib/ai/*.ts",
     "./types/*": "./src/types/*.ts",
     "./views/*": "./src/views/*.tsx",
     "./globals.css": "./src/styles/globals.css",

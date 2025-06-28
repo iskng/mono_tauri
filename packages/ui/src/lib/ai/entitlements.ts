@@ -8,17 +8,17 @@ export interface Entitlements {
 
 export const entitlementsByUserType: Record<string, Entitlements> = {
   free: {
-    availableChatModelIds: ['grok-beta', 'grok-2-mini'],
+    availableChatModelIds: ['chat-model'],
     maxTokens: 10000,
     maxChats: 10,
   },
   pro: {
-    availableChatModelIds: ['grok-beta', 'grok-2-mini', 'grok-2'],
+    availableChatModelIds: ['chat-model', 'chat-model-reasoning'],
     maxTokens: 100000,
     maxChats: 100,
   },
   enterprise: {
-    availableChatModelIds: ['grok-beta', 'grok-2-mini', 'grok-2'],
+    availableChatModelIds: ['chat-model', 'chat-model-reasoning'],
     maxTokens: undefined, // unlimited
     maxChats: undefined, // unlimited
   },

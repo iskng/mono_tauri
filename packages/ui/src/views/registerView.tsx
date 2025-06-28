@@ -19,7 +19,7 @@ export function RegisterView({ action }: RegisterViewProps) {
           </p>
         </div>
         <AuthForm action={action} defaultEmail="">
-          <SubmitButton>Sign up</SubmitButton>
+          <SubmitButton isSuccessful={false}>Sign up</SubmitButton>
           <p className="text-center text-sm text-gray-600 mt-4 dark:text-zinc-400">
             {'Already have an account? '}
             <Link

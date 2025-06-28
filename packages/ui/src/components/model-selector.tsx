@@ -30,7 +30,7 @@ export function ModelSelector({
   const [open, setOpen] = useState(false);
   const [optimisticModelId, setOptimisticModelId] = useState(selectedModelId);
 
-  const userType = session.user.type || 'free';
+  const userType = session.user?.type || 'free';
   const entitlements = entitlementsByUserType[userType];
   const availableChatModelIds = entitlements?.availableChatModelIds || [];
 

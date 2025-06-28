@@ -1,8 +1,8 @@
 'use client';
 
 import { Link } from "@repo/ui/components/platform-adapters";
-import { AuthForm } from '../components/auth-form';
-import { SubmitButton } from '../components/submit-button';
+import { AuthForm } from '../components/auth-form-native';
+import { SubmitButton } from '../components/submit-button-native';
 
 export interface LoginViewProps {
   action: (formData: FormData) => Promise<any>;

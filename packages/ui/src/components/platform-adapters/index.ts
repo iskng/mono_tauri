@@ -1,2 +1,2 @@
 export * from './router';
-export { Link } from './link';
+export { Link, RouterContext, type RouterContextType } from './link';

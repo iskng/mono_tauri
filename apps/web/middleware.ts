@@ -13,8 +13,25 @@ export async function middleware(request: NextRequest) {
     return new Response('pong', { status: 200 });
   }
 
+  // Add CORS headers for Tauri app
+  const response = NextResponse.next();
+  
+  // Allow Tauri app origins
+  const origin = request.headers.get('origin');
+  if (origin && (origin.startsWith('tauri://') || origin.startsWith('http://localhost:1420'))) {
+    response.headers.set('Access-Control-Allow-Origin', origin);
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    response.headers.set('Access-Control-Allow-Credentials', 'true');
+  }
+  
+  // Handle preflight requests
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 200, headers: response.headers });
+  }
+
   if (pathname.startsWith('/api/auth')) {
-    return NextResponse.next();
+    return response;
   }
 
   const token = await getToken({
@@ -37,7 +54,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {

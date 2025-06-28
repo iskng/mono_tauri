@@ -14,6 +14,6 @@
     "allowImportingTsExtensions": true,
     "target": "ES2020"
   },
-  "include": ["src"],
+  "include": ["src", "../../packages/ui/src/types/next-auth.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
