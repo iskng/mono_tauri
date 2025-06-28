@@ -1,7 +1,7 @@
-import { AnalyzeTextView } from "@repo/ui/views/analyzeTextView";
+import { SimpleChatView } from "@repo/ui/views/simpleChatView";
 
 function App() {
-  return <AnalyzeTextView />;
+  return <SimpleChatView />;
 }
 
 export default App;

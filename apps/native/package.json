@@ -10,9 +10,9 @@
     "tauri": "tauri",
     "clean": "rm -rf dist",
     "check-types": "tsc --noEmit",
-    "detect-ip": "node scripts/detect-network-ip.js",
-    "dev:ios": "node scripts/dev-mobile.js ios",
-    "dev:android": "node scripts/dev-mobile.js android"
+    "detect-ip": "node scripts/detect-ip.js",
+    "dev:ios": "node scripts/dev-ios.js",
+    "dev:android": "node scripts/dev-android.js"
   },
   "dependencies": {
     "@repo/ui": "workspace:^",

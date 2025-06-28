@@ -30,7 +30,7 @@ export const AnalyzeTextView = ({ apiBaseUrl }: AnalyzeTextViewProps) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch(`${baseUrl}/api/text-analysis`, {
+      const response = await fetch(`${baseUrl}/api/test-analysis`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

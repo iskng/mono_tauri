@@ -1,7 +1,6 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import { AnalyzeTextView } from "@repo/ui/views/analyzeTextView";
-
-export default function Home() {
-  return <AnalyzeTextView />;
+export default function Page() {
+  // Redirect to the chat page which handles authentication and setup
+  redirect("/chat");
 }

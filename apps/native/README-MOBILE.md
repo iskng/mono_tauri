@@ -1,111 +1,92 @@
-# Mobile Development Setup
+# Mobile Development Guide
 
-This guide explains how to set up the native app for mobile development where the frontend (native app) needs to connect to the backend API running on your development machine.
+This guide explains how to run the native app on iOS and Android devices.
 
-## Quick Start (Automated)
+## Prerequisites
 
-The easiest way to start mobile development is using the automated scripts:
+- **iOS**: Xcode installed (macOS only)
+- **Android**: Android Studio installed
+- **Backend**: The web app must be accessible from your mobile device
+
+## Quick Start
+
+### iOS Development
 
 ```bash
-# For iOS
+# Automatically detect IP, start backend, and launch iOS
 pnpm dev:ios
+```
 
-# For Android
+### Android Development
+
+```bash
+# Automatically detect IP, start backend, and launch Android
 pnpm dev:android
 ```
 
-These commands will:
-1. Automatically detect your network IP address
-2. Update the .env file with the correct IP
-3. Generate an API configuration file for the UI package
-4. Check if the backend is accessible
-5. Start the backend automatically if it's not running
-6. Start the Tauri mobile development server
+## What These Commands Do
 
-Note: The backend will be automatically stopped when you stop the mobile dev server (Ctrl+C).
+1. **Detect Network IP**: Automatically finds your machine's IP address
+2. **Start Backend**: Launches the web backend with network access (if not already running)
+3. **Configure App**: Sets the API host to your network IP
+4. **Launch Mobile**: Opens Xcode (iOS) or Android Studio with the configured app
 
-## Manual Setup
+## Manual Setup (if needed)
 
-1. **Find your computer's network IP address:**
-   - macOS: System Settings > Network > Wi-Fi > Details > IP address
-   - Windows: Run `ipconfig`, look for IPv4 Address
-   - Linux: Run `ip addr`, look for inet address
+### 1. Find Your IP Address
 
-2. **Configure the environment:**
-   ```bash
-   # Copy the example env file
-   cp .env.example .env
-   
-   # Edit .env and set your IP address
-   # VITE_API_HOST=192.168.1.100  # Replace with your IP
-   ```
+- **macOS**: System Preferences > Network > Your connection
+- **Windows**: Run `ipconfig` in Command Prompt
+- **Linux**: Run `ip addr` or `ifconfig`
 
-3. **Start the backend (in the web app directory):**
-   ```bash
-   cd ../web
-   # Use dev:network to bind to all interfaces (required for mobile access)
-   pnpm dev:network
-   ```
-   This will start the backend on http://0.0.0.0:3000, making it accessible from your network
+### 2. Start the Backend
 
-4. **Start the native app with the API host:**
-   ```bash
-   # For iOS development
-   VITE_API_HOST=192.168.1.100 pnpm tauri ios dev
-   
-   # For Android development  
-   VITE_API_HOST=192.168.1.100 pnpm tauri android dev
-   
-   # For desktop development (uses localhost automatically)
-   pnpm tauri dev
-   ```
-
-## Additional Commands
-
-### Auto-detect Network IP Only
-If you just want to detect and set the network IP without starting development:
 ```bash
-pnpm detect-ip
+# In the mono repo root
+pnpm --filter web dev:network
 ```
 
-This will update your .env file with the detected IP address.
+### 3. Set the API Host
+
+Create a `.env` file in the native app directory:
+
+```bash
+VITE_API_HOST=192.168.1.100  # Replace with your IP
+```
+
+Or run with the environment variable:
+
+```bash
+VITE_API_HOST=192.168.1.100 pnpm tauri ios dev
+```
 
 ## Troubleshooting
 
 ### Connection Refused
-- Ensure both your development machine and mobile device are on the same network
-- Check firewall settings - port 3000 needs to be accessible
-- Verify the backend is running and accessible by visiting http://YOUR_IP:3000 in a browser
 
-### API Calls Failing
-- Check the network tab in developer tools for the actual URL being called
-- Ensure CORS is properly configured in the backend (already set up in Next.js config)
-- Verify the environment variable is being read (check console for network address display)
+1. Ensure the backend is running with `dev:network` (not just `dev`)
+2. Check firewall settings - port 3000 must be accessible
+3. Verify you're on the same network as your mobile device
 
-## Using Custom API URL in Code
+### Wrong IP Address
 
-The AnalyzeTextView component accepts an optional `apiBaseUrl` prop:
+The script tries to detect the primary network interface. If it picks the wrong one:
 
-```tsx
-import { AnalyzeTextView } from "@repo/ui/views/analyzeTextView";
+1. Run `pnpm detect-ip` to see what IP was detected
+2. Manually set the correct IP in `.env` file
+3. Re-run the dev command
 
-// Use custom URL
-<AnalyzeTextView apiBaseUrl="http://192.168.1.100:3000" />
+### Backend Already Running
 
-// Or let it auto-detect from environment
-<AnalyzeTextView />
-```
+The scripts check if the backend is already running. If you have issues:
 
-## Advanced Configuration
+1. Stop all running processes
+2. Run the dev command again
+3. Or manually start backend and native app separately
 
-For more complex setups, you can use the network configuration utilities:
+## Features
 
-```tsx
-import { useApiConfig, getApiBaseUrl } from "@repo/ui/lib/network-config";
-
-// In a component
-const { apiBaseUrl, isLocal, networkAddress } = useApiConfig();
-
-// Or get URL directly
-const url = getApiBaseUrl("http://custom-backend.com");
-```
+- **Automatic IP Detection**: No need to manually find and set IP addresses
+- **Backend Management**: Automatically starts the backend if needed
+- **Hot Reload**: Changes to the app are reflected immediately
+- **Unified Commands**: Single command to start everything
