@@ -184,24 +184,28 @@ export async function POST(request: Request) {
                   throw new Error('No assistant message found!');
                 }
 
-                const [, assistantMessage] = appendResponseMessages({
+                const appendedMessages = appendResponseMessages({
                   messages: [message],
                   responseMessages: response.messages,
                 });
 
-                await saveMessages({
-                  messages: [
-                    {
-                      id: assistantId,
-                      chatId: id,
-                      role: assistantMessage.role,
-                      parts: assistantMessage.parts,
-                      attachments:
-                        assistantMessage.experimental_attachments ?? [],
-                      createdAt: new Date(),
-                    },
-                  ],
-                });
+                const assistantMessage = appendedMessages[1];
+                
+                if (assistantMessage) {
+                  await saveMessages({
+                    messages: [
+                      {
+                        id: assistantId,
+                        chatId: id,
+                        role: assistantMessage.role,
+                        parts: assistantMessage.parts,
+                        attachments:
+                          assistantMessage.experimental_attachments ?? [],
+                        createdAt: new Date(),
+                      },
+                    ],
+                  });
+                }
               } catch (_) {
                 console.error('Failed to save chat');
               }
