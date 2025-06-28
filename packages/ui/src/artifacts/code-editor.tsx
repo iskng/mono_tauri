@@ -1,4 +1,5 @@
 import { Artifact } from '@repo/ui/components/create-artifact';
+import type { UIArtifact } from '@repo/ui/components/artifact';
 import { CodeEditor } from '@repo/ui/components/code-editor';
 import {
   CopyIcon,
@@ -77,7 +78,7 @@ export const codeArtifact = new Artifact<'code', Metadata>({
   },
   onStreamPart: ({ streamPart, setArtifact }) => {
     if (streamPart.type === 'code-delta') {
-      setArtifact((draftArtifact) => ({
+      setArtifact((draftArtifact: UIArtifact) => ({
         ...draftArtifact,
         content: streamPart.content as string,
         isVisible:

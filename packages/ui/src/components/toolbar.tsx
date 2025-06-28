@@ -24,7 +24,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@repo/ui/components/ui/tooltip';
+} from '@repo/ui/components/tooltip';
 
 import { ArrowUpIcon, StopIcon, SummarizeIcon } from './icons';
 import { artifactDefinitions, ArtifactKind } from './artifact';

@@ -2,7 +2,9 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useActionState, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+// @ts-ignore - useActionState is in React 19 RC
+import { useActionState } from 'react';
 import { toast } from '@repo/ui/components/toast';
 
 import { AuthForm } from '@repo/ui/components/auth-form';

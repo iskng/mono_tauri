@@ -15,13 +15,13 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@repo/ui/components/ui/alert-dialog';
+} from '@repo/ui/components/alert-dialog';
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
   useSidebar,
-} from '@repo/ui/components/ui/sidebar';
+} from '@repo/ui/components/sidebar';
 import type { Chat } from '@repo/ui/lib/db/schema';
 import { fetcher } from '@repo/ui/lib/utils';
 import { ChatItem } from './sidebar-history-item';

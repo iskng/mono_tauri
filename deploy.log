@@ -1,0 +1,144 @@
+Vercel CLI 44.2.7
+Retrieving project…
+Deploying lynxai/type2
+Inspect: https://vercel.com/lynxai/type2/6ku6X1LC4Zit96pQwu2WNznpxbKY [1s]
+Production: https://type2-dpzwb9k94-lynxai.vercel.app [1s]
+https://type2-dpzwb9k94-lynxai.vercel.appQueued
+2025-06-28T04:48:08.194Z  Running build in Washington, D.C., USA (East) – iad1
+2025-06-28T04:48:08.194Z  Build machine configuration: 4 cores, 8 GB
+2025-06-28T04:48:08.209Z  Retrieving list of deployment files...
+2025-06-28T04:48:08.345Z  Previous build caches not available
+2025-06-28T04:48:08.823Z  Downloading 219 deployment files...
+2025-06-28T04:48:10.000Z  Running "vercel build"
+2025-06-28T04:48:10.438Z  Vercel CLI 43.3.0
+2025-06-28T04:48:11.013Z  > Detected ENABLE_EXPERIMENTAL_COREPACK=1 and "pnpm@10.12.4" in package.json
+2025-06-28T04:48:11.185Z  Warning: Detected "engines": { "node": ">=18" } in your `package.json` that will automatically upgrade when a new major Node.js Version is released. Learn More: http://vercel.link/node-version
+2025-06-28T04:48:11.213Z  Running "install" command: `pnpm install`...
+2025-06-28T04:48:11.416Z  ! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-10.12.4.tgz
+2025-06-28T04:48:12.501Z  Scope: all 5 workspace projects
+2025-06-28T04:48:12.587Z  Lockfile is up to date, resolution step is skipped
+2025-06-28T04:48:12.679Z  Progress: resolved 1, reused 0, downloaded 0, added 0
+2025-06-28T04:48:12.828Z  Packages: +1099
+2025-06-28T04:48:12.829Z  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2025-06-28T04:48:13.681Z  Progress: resolved 1099, reused 0, downloaded 179, added 123
+2025-06-28T04:48:14.685Z  Progress: resolved 1099, reused 0, downloaded 324, added 215
+2025-06-28T04:48:15.685Z  Progress: resolved 1099, reused 0, downloaded 354, added 227
+2025-06-28T04:48:16.686Z  Progress: resolved 1099, reused 0, downloaded 356, added 227
+2025-06-28T04:48:17.687Z  Progress: resolved 1099, reused 0, downloaded 572, added 349
+2025-06-28T04:48:18.688Z  Progress: resolved 1099, reused 0, downloaded 693, added 397
+2025-06-28T04:48:19.688Z  Progress: resolved 1099, reused 0, downloaded 727, added 406
+2025-06-28T04:48:20.688Z  Progress: resolved 1099, reused 0, downloaded 728, added 406
+2025-06-28T04:48:21.690Z  Progress: resolved 1099, reused 0, downloaded 774, added 425
+2025-06-28T04:48:22.700Z  Progress: resolved 1099, reused 0, downloaded 837, added 445
+2025-06-28T04:48:23.700Z  Progress: resolved 1099, reused 0, downloaded 901, added 470
+2025-06-28T04:48:24.699Z  Progress: resolved 1099, reused 0, downloaded 1049, added 720
+2025-06-28T04:48:25.700Z  Progress: resolved 1099, reused 0, downloaded 1049, added 777
+2025-06-28T04:48:26.700Z  Progress: resolved 1099, reused 0, downloaded 1049, added 893
+2025-06-28T04:48:27.700Z  Progress: resolved 1099, reused 0, downloaded 1049, added 940
+2025-06-28T04:48:28.388Z  Progress: resolved 1099, reused 0, downloaded 1049, added 1099, done
+2025-06-28T04:48:30.072Z  
+2025-06-28T04:48:30.072Z  devDependencies:
+2025-06-28T04:48:30.072Z  + glob 11.0.3
+2025-06-28T04:48:30.072Z  + prettier 3.3.3
+2025-06-28T04:48:30.072Z  + turbo 2.3.3
+2025-06-28T04:48:30.072Z  + typescript 5.5.4
+2025-06-28T04:48:30.073Z  
+2025-06-28T04:48:30.073Z  ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+2025-06-28T04:48:30.073Z  │                                                                              │
+2025-06-28T04:48:30.073Z  │   Ignored build scripts: bufferutil, core-js-pure, esbuild, sharp,           │
+2025-06-28T04:48:30.073Z  │   unrs-resolver.                                                             │
+2025-06-28T04:48:30.074Z  │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+2025-06-28T04:48:30.074Z  │   to run scripts.                                                            │
+2025-06-28T04:48:30.074Z  │                                                                              │
+2025-06-28T04:48:30.075Z  ╰──────────────────────────────────────────────────────────────────────────────╯
+2025-06-28T04:48:30.075Z  
+2025-06-28T04:48:30.154Z  Done in 18s using pnpm v10.12.4
+2025-06-28T04:48:30.585Z  
+2025-06-28T04:48:30.586Z  > tauri-v2-nextjs-monorepo@ vercel-build /vercel/path0
+2025-06-28T04:48:30.586Z  > turbo build --filter=web
+2025-06-28T04:48:30.586Z  
+2025-06-28T04:48:30.653Z  
+2025-06-28T04:48:30.653Z  Attention:
+2025-06-28T04:48:30.654Z  Turborepo now collects completely anonymous telemetry regarding usage.
+2025-06-28T04:48:30.654Z  This information is used to shape the Turborepo roadmap and prioritize features.
+2025-06-28T04:48:30.654Z  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-06-28T04:48:30.654Z  https://turbo.build/repo/docs/telemetry
+2025-06-28T04:48:30.654Z  
+2025-06-28T04:48:30.711Z  • Packages in scope: web
+2025-06-28T04:48:30.711Z  • Running build in 1 packages
+2025-06-28T04:48:30.711Z  • Remote caching enabled
+2025-06-28T04:48:30.841Z  web:build: cache miss, executing 35e89307e5f4e98c
+2025-06-28T04:48:31.158Z  web:build: 
+2025-06-28T04:48:31.158Z  web:build: > web@0.1.0 build /vercel/path0/apps/web
+2025-06-28T04:48:31.159Z  web:build: > tsx lib/db/migrate && next build
+2025-06-28T04:48:31.159Z  web:build: 
+2025-06-28T04:48:32.759Z  web:build: ⏳ Running migrations...
+2025-06-28T04:48:32.845Z  web:build: {
+2025-06-28T04:48:32.845Z  web:build:   severity_local: 'NOTICE',
+2025-06-28T04:48:32.845Z  web:build:   severity: 'NOTICE',
+2025-06-28T04:48:32.845Z  web:build:   code: '42P06',
+2025-06-28T04:48:32.846Z  web:build:   message: 'schema "drizzle" already exists, skipping',
+2025-06-28T04:48:32.846Z  web:build:   file: 'schemacmds.c',
+2025-06-28T04:48:32.846Z  web:build:   line: '132',
+2025-06-28T04:48:32.846Z  web:build:   routine: 'CreateSchemaCommand'
+2025-06-28T04:48:32.846Z  web:build: }
+2025-06-28T04:48:32.848Z  web:build: {
+2025-06-28T04:48:32.848Z  web:build:   severity_local: 'NOTICE',
+2025-06-28T04:48:32.848Z  web:build:   severity: 'NOTICE',
+2025-06-28T04:48:32.848Z  web:build:   code: '42P07',
+2025-06-28T04:48:32.848Z  web:build:   message: 'relation "__drizzle_migrations" already exists, skipping',
+2025-06-28T04:48:32.848Z  web:build:   file: 'parse_utilcmd.c',
+2025-06-28T04:48:32.848Z  web:build:   line: '207',
+2025-06-28T04:48:32.848Z  web:build:   routine: 'transformCreateStmt'
+2025-06-28T04:48:32.848Z  web:build: }
+2025-06-28T04:48:32.857Z  web:build: ✅ Migrations completed in 97 ms
+2025-06-28T04:48:33.756Z  web:build: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2025-06-28T04:48:33.756Z  web:build: This information is used to shape Next.js' roadmap and prioritize features.
+2025-06-28T04:48:33.756Z  web:build: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-06-28T04:48:33.756Z  web:build: https://nextjs.org/telemetry
+2025-06-28T04:48:33.756Z  web:build: 
+2025-06-28T04:48:33.867Z  web:build:    ▲ Next.js 15.4.0-canary.102
+2025-06-28T04:48:33.867Z  web:build:    - Experiments (use with caution):
+2025-06-28T04:48:33.867Z  web:build:      ✓ ppr
+2025-06-28T04:48:33.867Z  web:build: 
+2025-06-28T04:48:33.901Z  web:build:    Creating an optimized production build ...
+2025-06-28T04:48:54.312Z  web:build: Failed to compile.
+2025-06-28T04:48:54.312Z  web:build: 
+2025-06-28T04:48:54.312Z  web:build: ../../packages/ui/src/views/analyzeTextView.tsx
+2025-06-28T04:48:54.312Z  web:build: Module not found: Can't resolve '../lib/network-config.js'
+2025-06-28T04:48:54.313Z  web:build: 
+2025-06-28T04:48:54.313Z  web:build: https://nextjs.org/docs/messages/module-not-found
+2025-06-28T04:48:54.313Z  web:build: 
+2025-06-28T04:48:54.313Z  web:build: Import trace for requested module:
+2025-06-28T04:48:54.313Z  web:build: ./app/analyze-text/page.tsx
+2025-06-28T04:48:54.313Z  web:build: 
+2025-06-28T04:48:54.313Z  web:build: ./lib/ai/models.test.ts
+2025-06-28T04:48:54.313Z  web:build: Module not found: Can't resolve '@/tests/prompts/utils'
+2025-06-28T04:48:54.313Z  web:build: 
+2025-06-28T04:48:54.313Z  web:build: https://nextjs.org/docs/messages/module-not-found
+2025-06-28T04:48:54.313Z  web:build: 
+2025-06-28T04:48:54.313Z  web:build: Import trace for requested module:
+2025-06-28T04:48:54.313Z  web:build: ./lib/ai/providers.ts
+2025-06-28T04:48:54.313Z  web:build: ./app/(chat)/api/chat/route.ts
+2025-06-28T04:48:54.313Z  web:build: 
+2025-06-28T04:48:54.318Z  web:build: 
+2025-06-28T04:48:54.318Z  web:build: > Build failed because of webpack errors
+2025-06-28T04:48:54.349Z  web:build:  ELIFECYCLE  Command failed with exit code 1.
+2025-06-28T04:48:54.362Z  web:build: ERROR: command finished with error: command (/vercel/path0/apps/web) /vercel/path0/.vercel/cache/corepack/shim/pnpm run build exited (1)
+2025-06-28T04:48:54.363Z  web#build: command (/vercel/path0/apps/web) /vercel/path0/.vercel/cache/corepack/shim/pnpm run build exited (1)
+2025-06-28T04:48:54.365Z  
+2025-06-28T04:48:54.365Z    Tasks:    0 successful, 1 total
+2025-06-28T04:48:54.365Z   Cached:    0 cached, 1 total
+2025-06-28T04:48:54.365Z     Time:    23.703s 
+2025-06-28T04:48:54.365Z  Summary:    /vercel/path0/.turbo/runs/2z7ddh9I3Hme6mQM1NXgOw3OoFO.json
+2025-06-28T04:48:54.365Z   Failed:    web#build
+2025-06-28T04:48:54.365Z  
+2025-06-28T04:48:54.369Z   ERROR  run failed: command  exited (1)
+2025-06-28T04:48:54.388Z   ELIFECYCLE  Command failed with exit code 1.
+2025-06-28T04:48:54.403Z  Error: Command "pnpm run vercel-build" exited with 1
+2025-06-28T04:48:55.141Z  
+Error: Command "pnpm run vercel-build" exited with 1
+> 
+
+> To check build logs run: `vercel inspect type2-dpzwb9k94-lynxai.vercel.app --logs`
+> Or inspect them in your browser at https://type2-dpzwb9k94-lynxai.vercel.app/_logs

@@ -10,7 +10,8 @@
     "clean": "turbo clean",
     "check-types": "turbo check-types",
     "shadcn": "pnpm --filter @repo/ui shadcn",
-    "tauri": "pnpm --filter native tauri"
+    "tauri": "pnpm --filter native tauri",
+    "vercel-build": "turbo build --filter=web"
   },
   "devDependencies": {
     "glob": "^11.0.3",
@@ -18,7 +19,7 @@
     "turbo": "^2.3.3",
     "typescript": "5.5.4"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.12.4",
   "engines": {
     "node": ">=18"
   }

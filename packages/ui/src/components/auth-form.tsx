@@ -8,9 +8,7 @@ export function AuthForm({
   children,
   defaultEmail = '',
 }: {
-  action: NonNullable<
-    string | ((formData: FormData) => void | Promise<void>) | undefined
-  >;
+  action: string | ((formData: FormData) => void | Promise<void>);
   children: React.ReactNode;
   defaultEmail?: string;
 }) {

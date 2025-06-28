@@ -1,4 +1,5 @@
 import { Artifact } from '@repo/ui/components/create-artifact';
+import type { UIArtifact } from '@repo/ui/components/artifact';
 import {
   CopyIcon,
   LineChartIcon,
@@ -18,7 +19,7 @@ export const sheetArtifact = new Artifact<'sheet', Metadata>({
   initialize: async () => {},
   onStreamPart: ({ setArtifact, streamPart }) => {
     if (streamPart.type === 'sheet-delta') {
-      setArtifact((draftArtifact) => ({
+      setArtifact((draftArtifact: UIArtifact) => ({
         ...draftArtifact,
         content: streamPart.content as string,
         isVisible: true,

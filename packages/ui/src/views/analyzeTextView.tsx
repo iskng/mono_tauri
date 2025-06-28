@@ -8,7 +8,7 @@ import {
 import { Textarea } from "@repo/ui/components/textarea";
 import { Button } from "@repo/ui/components/button";
 import { TextAnalysisResult } from "../types/text-analysis.js";
-import { useApiConfig } from "../lib/network-config.js";
+import { useApiConfig } from "../lib/network-config";
 
 function getSentimentText(score: number): string {
   if (score === 0) return "Neutral 😐";

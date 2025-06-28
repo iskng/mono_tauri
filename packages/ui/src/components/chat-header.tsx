@@ -6,7 +6,7 @@ import { useWindowSize } from 'usehooks-ts';
 
 import { ModelSelector } from '@repo/ui/components/model-selector';
 import { SidebarToggle } from '@repo/ui/components/sidebar-toggle';
-import { Button } from '@repo/ui/components/ui/button';
+import { Button } from '@repo/ui/components/button';
 import { PlusIcon, VercelIcon } from './icons';
 import { useSidebar } from "@repo/ui/components/sidebar";
 import { memo } from 'react';

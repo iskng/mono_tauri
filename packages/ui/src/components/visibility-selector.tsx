@@ -1,13 +1,13 @@
 'use client';
 
 import { type ReactNode, useMemo, useState } from 'react';
-import { Button } from '@repo/ui/components/ui/button';
+import { Button } from '@repo/ui/components/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@repo/ui/components/ui/dropdown-menu';
+} from '@repo/ui/components/dropdown-menu';
 import { cn } from '@repo/ui/lib/utils';
 import {
   CheckCircleFillIcon,

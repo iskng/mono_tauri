@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@repo/ui/components/button";
 import { Textarea } from "@repo/ui/components/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@repo/ui/components/card";
-import { useApiConfig } from "../lib/network-config.js";
+import { useApiConfig } from "../lib/network-config";
 
 interface Message {
   id: string;

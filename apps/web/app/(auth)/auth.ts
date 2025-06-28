@@ -1,10 +1,11 @@
 import { compare } from 'bcrypt-ts';
-import NextAuth, { type DefaultSession } from 'next-auth';
+import NextAuth, { type DefaultSession, type Session, type User as NextAuthUser } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { createGuestUser, getUser } from '@/lib/db/queries';
 import { authConfig } from './auth.config';
 import { DUMMY_PASSWORD } from '@/lib/constants';
 import type { DefaultJWT } from 'next-auth/jwt';
+import type { NextRequest } from 'next/server';
 
 export type UserType = 'guest' | 'regular';
 
@@ -30,12 +31,7 @@ declare module 'next-auth/jwt' {
   }
 }
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
+const nextAuth = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -50,7 +46,7 @@ export const {
 
         const [user] = users;
 
-        if (!user.password) {
+        if (!user || !user.password) {
           await compare(password, DUMMY_PASSWORD);
           return null;
         }
@@ -90,3 +86,10 @@ export const {
     },
   },
 });
+
+export const {
+  handlers: { GET, POST },
+  auth,
+  signIn,
+  signOut,
+} = nextAuth as any;

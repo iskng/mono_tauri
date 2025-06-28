@@ -12,12 +12,12 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@repo/ui/components/ui/dropdown-menu';
+} from '@repo/ui/components/dropdown-menu';
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@repo/ui/components/ui/sidebar';
+} from '@repo/ui/components/sidebar';
 import { useRouter } from 'next/navigation';
 import { toast } from './toast';
 import { LoaderIcon } from './icons';
@@ -98,7 +98,7 @@ export function SidebarUserNav({ user }: { user: User }) {
                     router.push('/login');
                   } else {
                     signOut({
-                      redirectTo: '/',
+                      callbackUrl: '/',
                     });
                   }
                 }}

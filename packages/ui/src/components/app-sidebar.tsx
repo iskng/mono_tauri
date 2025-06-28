@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { PlusIcon } from '@repo/ui/components/icons';
 import { SidebarHistory } from '@repo/ui/components/sidebar-history';
 import { SidebarUserNav } from '@repo/ui/components/sidebar-user-nav';
-import { Button } from '@repo/ui/components/ui/button';
+import { Button } from '@repo/ui/components/button';
 import {
   Sidebar,
   SidebarContent,
@@ -14,7 +14,7 @@ import {
   SidebarHeader,
   SidebarMenu,
   useSidebar,
-} from '@repo/ui/components/ui/sidebar';
+} from '@repo/ui/components/sidebar';
 import Link from 'next/link';
 import { Tooltip, TooltipContent, TooltipTrigger } from "@repo/ui/components/tooltip";
 

@@ -1,0 +1,22 @@
+# Exclude all node_modules
+**/node_modules
+**/.next
+**/.turbo
+**/dist
+**/.DS_Store
+**/*.log
+**/.env*
+!**/.env.example
+
+# Exclude native app completely
+apps/native
+
+# Exclude development files
+.git
+.github
+.vscode
+*.md
+!README.md
+
+# Exclude pnpm cache
+.pnpm-store

@@ -1,15 +1,15 @@
 'use client';
 
-import { startTransition, useMemo, useOptimistic, useState } from 'react';
+import { startTransition, useMemo, useState } from 'react';
 
-import { saveChatModelAsCookie } from '@/app/(chat)/actions';
-import { Button } from '@repo/ui/components/ui/button';
+// TODO: saveChatModelAsCookie should be passed as a prop from the consuming app
+import { Button } from '@repo/ui/components/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@repo/ui/components/ui/dropdown-menu';
+} from '@repo/ui/components/dropdown-menu';
 import { chatModels } from '@repo/ui/lib/ai/models';
 import { cn } from '@repo/ui/lib/utils';
 
@@ -21,16 +21,18 @@ export function ModelSelector({
   session,
   selectedModelId,
   className,
+  onModelChange,
 }: {
   session: Session;
   selectedModelId: string;
+  onModelChange?: (modelId: string) => void;
 } & React.ComponentProps<typeof Button>) {
   const [open, setOpen] = useState(false);
-  const [optimisticModelId, setOptimisticModelId] =
-    useOptimistic(selectedModelId);
+  const [optimisticModelId, setOptimisticModelId] = useState(selectedModelId);
 
-  const userType = session.user.type;
-  const { availableChatModelIds } = entitlementsByUserType[userType];
+  const userType = session.user.type || 'free';
+  const entitlements = entitlementsByUserType[userType];
+  const availableChatModelIds = entitlements?.availableChatModelIds || [];
 
   const availableChatModels = chatModels.filter((chatModel) =>
     availableChatModelIds.includes(chatModel.id),
@@ -75,7 +77,8 @@ export function ModelSelector({
 
                 startTransition(() => {
                   setOptimisticModelId(id);
-                  saveChatModelAsCookie(id);
+                  // Call the provided callback instead of directly saving to cookie
+                  onModelChange?.(id);
                 });
               }}
               data-active={id === optimisticModelId}

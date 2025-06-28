@@ -1,4 +1,5 @@
 import { Artifact } from '@repo/ui/components/create-artifact';
+import type { UIArtifact } from '@repo/ui/components/artifact';
 import { DiffView } from '@repo/ui/components/diffview';
 import { DocumentSkeleton } from '@repo/ui/components/document-skeleton';
 import { Editor } from '@repo/ui/components/text-editor';
@@ -12,7 +13,6 @@ import {
 } from '@repo/ui/components/icons';
 import { Suggestion } from '@repo/ui/lib/db/schema';
 import { toast } from 'sonner';
-import { getSuggestions } from '../actions';
 
 interface TextArtifactMetadata {
   suggestions: Array<Suggestion>;
@@ -22,10 +22,12 @@ export const textArtifact = new Artifact<'text', TextArtifactMetadata>({
   kind: 'text',
   description: 'Useful for text content, like drafting essays and emails.',
   initialize: async ({ documentId, setMetadata }) => {
-    const suggestions = await getSuggestions({ documentId });
-
+    // TODO: getSuggestions should be provided by the consuming app
+    // For now, initialize with empty suggestions
+    // const suggestions = await getSuggestions({ documentId });
+    
     setMetadata({
-      suggestions,
+      suggestions: [],
     });
   },
   onStreamPart: ({ streamPart, setMetadata, setArtifact }) => {
@@ -41,7 +43,7 @@ export const textArtifact = new Artifact<'text', TextArtifactMetadata>({
     }
 
     if (streamPart.type === 'text-delta') {
-      setArtifact((draftArtifact) => {
+      setArtifact((draftArtifact: UIArtifact) => {
         return {
           ...draftArtifact,
           content: draftArtifact.content + (streamPart.content as string),

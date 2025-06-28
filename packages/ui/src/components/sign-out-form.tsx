@@ -1,18 +1,13 @@
 import Form from 'next/form';
 
-import { signOut } from '@/app/(auth)/auth';
+// TODO: signOut should be provided by the consuming app
+// import { signOut } from '@/app/(auth)/auth';
 
 export const SignOutForm = () => {
   return (
     <Form
       className="w-full"
-      action={async () => {
-        'use server';
-
-        await signOut({
-          redirectTo: '/',
-        });
-      }}
+      action="#" // TODO: This should be replaced with a server action from the consuming app
     >
       <button
         type="submit"
