@@ -6,3 +6,8 @@ export type DataStreamDelta = {
   type: string;
   content?: any;
 };
+
+export interface DataPart {
+  type: string;
+  [key: string]: any;
+}

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-// @ts-ignore - useActionState is in React 19 RC
+// @ts-ignore - useActionState is in React 19 RC but types are React 18
 import { useActionState } from 'react';
 import { toast } from '@repo/ui/components/toast';
 

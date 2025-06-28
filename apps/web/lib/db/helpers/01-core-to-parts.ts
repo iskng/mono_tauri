@@ -152,6 +152,8 @@ async function migrateMessages() {
       for (const section of messageSections) {
         const [userMessage, ...assistantMessages] = section;
 
+        if (!userMessage) continue;
+
         const [firstAssistantMessage] = assistantMessages;
 
         try {
@@ -160,7 +162,7 @@ async function migrateMessages() {
             // @ts-expect-error: message.content has different type
             responseMessages: assistantMessages,
             _internal: {
-              currentDate: () => firstAssistantMessage.createdAt ?? new Date(),
+              currentDate: () => firstAssistantMessage?.createdAt ?? new Date(),
             },
           });
 

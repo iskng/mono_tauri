@@ -29,7 +29,7 @@ import equal from 'fast-deep-equal';
 import type { UseChatHelpers } from '@ai-sdk/react';
 import type { VisibilityType } from './visibility-selector';
 
-export const artifactDefinitions = [
+export const artifactDefinitions: any[] = [
   textArtifact,
   codeArtifact,
   imageArtifact,
