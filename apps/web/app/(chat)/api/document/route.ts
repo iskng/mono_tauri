@@ -1,5 +1,5 @@
 import { auth } from '@/app/(auth)/auth';
-import type { ArtifactKind } from '@/components/artifact';
+import type { ArtifactKind } from '@repo/ui/components/artifact';
 import {
   deleteDocumentsByIdAfterTimestamp,
   getDocumentsById,
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
   if (documents.length > 0) {
     const [document] = documents;
 
-    if (document.userId !== session.user.id) {
+    if (document && document.userId !== session.user.id) {
       return new ChatSDKError('forbidden:document').toResponse();
     }
   }
@@ -112,6 +112,10 @@ export async function DELETE(request: Request) {
   const documents = await getDocumentsById({ id });
 
   const [document] = documents;
+
+  if (!document) {
+    return new ChatSDKError('not_found:document').toResponse();
+  }
 
   if (document.userId !== session.user.id) {
     return new ChatSDKError('forbidden:document').toResponse();
